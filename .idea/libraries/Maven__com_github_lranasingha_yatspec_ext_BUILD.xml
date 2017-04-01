@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.github.lranasingha:yatspec-ext:BUILD">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/lranasingha/yatspec-ext/BUILD/yatspec-ext-BUILD.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/lranasingha/yatspec-ext/BUILD/yatspec-ext-BUILD-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/lranasingha/yatspec-ext/BUILD/yatspec-ext-BUILD-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
