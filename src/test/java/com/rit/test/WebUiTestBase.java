@@ -1,8 +1,8 @@
 package com.rit.test;
 
-import com.github.lranasingha.yatspec.YatSpecTestBase;
-import com.github.lranasingha.yatspec.diagram.ImageData;
-import com.github.lranasingha.yatspec.hints.ProvidesHttpInteractionHints;
+import com.doeritlk.yatspec.YatSpecTestBase;
+import com.doeritlk.yatspec.diagram.ImageData;
+import com.doeritlk.yatspec.hints.ProvidesHttpInteractionHints;
 import com.googlecode.yatspec.junit.SpecRunner;
 import com.rit.test.driver.Drivers;
 import org.junit.After;

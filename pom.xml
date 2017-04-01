@@ -27,7 +27,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.github.lranasingha</groupId>
+            <groupId>com.doeritlk</groupId>
             <artifactId>yatspec-ext</artifactId>
             <version>BUILD</version>
             <scope>test</scope>
