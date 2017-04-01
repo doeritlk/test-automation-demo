@@ -1,6 +1,6 @@
-package com.rit.test.pages.widgets;
+package com.doeritlk.test.pages.widgets;
 
-import com.rit.test.pages.UiComponent;
+import com.doeritlk.test.pages.UiComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

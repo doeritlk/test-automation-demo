@@ -1,13 +1,14 @@
-package com.rit.test;
+package com.doeritlk.test.blog;
 
+import com.doeritlk.test.WebUiTestBase;
+import com.doeritlk.test.data.InMemoryDataSource;
+import com.doeritlk.test.data.User;
+import com.doeritlk.test.pages.BlogEditorPage;
+import com.doeritlk.test.pages.BlogPreviewPage;
+import com.doeritlk.test.pages.LoginPage;
 import com.googlecode.yatspec.state.givenwhenthen.ActionUnderTest;
 import com.googlecode.yatspec.state.givenwhenthen.GivensBuilder;
 import com.googlecode.yatspec.state.givenwhenthen.StateExtractor;
-import com.rit.test.data.InMemoryDataSource;
-import com.rit.test.data.User;
-import com.rit.test.pages.BlogEditorPage;
-import com.rit.test.pages.BlogPreviewPage;
-import com.rit.test.pages.LoginPage;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;

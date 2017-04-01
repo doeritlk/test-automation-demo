@@ -1,8 +1,8 @@
-package com.rit.test.pages;
+package com.doeritlk.test.pages;
 
-import com.rit.test.pages.widgets.Button;
-import com.rit.test.pages.widgets.Label;
-import com.rit.test.pages.widgets.TextField;
+import com.doeritlk.test.pages.widgets.Button;
+import com.doeritlk.test.pages.widgets.Label;
+import com.doeritlk.test.pages.widgets.TextField;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

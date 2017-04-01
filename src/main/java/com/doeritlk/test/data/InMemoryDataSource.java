@@ -1,4 +1,4 @@
-package com.rit.test.data;
+package com.doeritlk.test.data;
 
 import java.util.ArrayList;
 import java.util.Arrays;

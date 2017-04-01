@@ -1,4 +1,4 @@
-package com.rit.test;
+package com.doeritlk.test.blog;
 
 public class BlogPost {
     private final String title;
