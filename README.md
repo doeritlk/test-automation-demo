@@ -19,7 +19,9 @@ Web Page Object oriented tests - Test should interact with pages as objects, the
 
 
 ### How do I get set up? ###
-You need to have oracle java (JDK 1.8+) and Apache Maven installed in your box. In order oo build the project, go to project directory and use: 
+You need to have latest oracle java (JDK 1.8+) and Apache Maven installed in your box.
+ 
+ In order oo build the project, go to project directory and use: 
 
     mvn clean install
 
