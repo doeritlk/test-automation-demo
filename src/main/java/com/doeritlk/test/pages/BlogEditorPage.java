@@ -4,6 +4,7 @@ import com.doeritlk.test.pages.widgets.Link;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -13,10 +14,13 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class BlogEditorPage extends UiComponent implements WithExplicitWait {
     private static final Duration FIVE_SECONDS = Duration.ofSeconds(5);
+
     private final By headerXpath = xpath("//body//div//main//section//input[@id='entry-title']");
     private final By contentEntryXpath = xpath("//body//section[@id='entry-markdown-content']//textarea");
-    private final By contentViewXpath = xpath("//body//section[contains(@class,'entry-preview-content')]//p");
-    private final By previewLinkXpath = xpath("//body//section[@class='gh-view']//section[contains(@class, 'entry-preview')]//a[text()='Preview']");
+    private final By contentViewXpath = xpath("//body//section[contains(@class,'entry-preview-content')]//div/p");
+    private final By previewLinkXpath = xpath(
+            "//body//section[@class='gh-view']//section[contains(@class, 'entry-preview')]//a[text()='Preview']"
+    );
 
     public BlogEditorPage(final WebDriver driver) {
         super(driver, xpath("//body"));
@@ -32,11 +36,15 @@ public class BlogEditorPage extends UiComponent implements WithExplicitWait {
 
 
     public void entersContent(final String content) {
-        find().findElement(contentEntryXpath).sendKeys(content);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(find().findElement(contentEntryXpath), content);
+        actions.perform();
     }
 
     public void entersHeader(final String title) {
-        find().findElement(headerXpath).sendKeys(title);
+        Actions actions = new Actions(driver);
+        actions.sendKeys(find().findElement(headerXpath), title);
+        actions.perform();
     }
 
 
@@ -68,7 +76,7 @@ public class BlogEditorPage extends UiComponent implements WithExplicitWait {
     }
 
     private void waitUntilSaveComplete(final WebElement saveButton) throws InterruptedException {
-        waitUntil(driver, stalenessOf(saveButton), FIVE_SECONDS);
+        waitUntil(driver, refreshed(visibilityOf(saveButton)), FIVE_SECONDS);
 
         TimeUnit.SECONDS.sleep(FIVE_SECONDS.getSeconds());
     }

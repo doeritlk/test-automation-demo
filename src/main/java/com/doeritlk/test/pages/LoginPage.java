@@ -15,12 +15,10 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 public class LoginPage extends UiComponent implements WithExplicitWait {
 
     private final Duration TEN_SECONDS = Duration.ofSeconds(10);
-    private final String loginUrl;
 
     public LoginPage(final WebDriver driver, final String loginUrl) {
         super(driver, By.xpath("//body[contains(@class, 'ghost-login')]"));
         driver.get(loginUrl);
-        this.loginUrl = loginUrl;
     }
 
     private TextField email() {
@@ -45,8 +43,8 @@ public class LoginPage extends UiComponent implements WithExplicitWait {
     }
 
     public void logsOut(final String logsOutUrl) {
-        driver.get(logsOutUrl);
-        waitUntil(driver, ExpectedConditions.urlToBe(loginUrl), TEN_SECONDS);
+        driver.navigate().to(logsOutUrl);
+        waitUntil(driver, ExpectedConditions.titleContains("Sign In"), TEN_SECONDS);
     }
 
 }

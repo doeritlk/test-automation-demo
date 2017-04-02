@@ -46,13 +46,13 @@ public class CreateNewBlogPostTest extends WebUiTestBase {
 
         when(userAddsANewBlogPost());
         and(entersTheHeaderOf("My First Blog Post"));
-        and(theContentOf("This is my cool content"));
+        and(theContentOf("Cool Content"));
         and(savesThePost());
 
         when(thePageIsRefreshed());
 
         then(theContentOfBlogPost(), theHeaderEqualsTo("My First Blog Post")
-                .and(theContentEqualsTo("This is my cool content"))
+                .and(theContentEqualsTo("Cool Content"))
         );
     }
 
@@ -63,13 +63,13 @@ public class CreateNewBlogPostTest extends WebUiTestBase {
 
         when(userAddsANewBlogPost());
         and(entersTheHeaderOf("My Second Blog Post"));
-        and(theContentOf("This is my cool content"));
+        and(theContentOf("Cool Content"));
         and(savesThePost());
 
         when(clicksThePreview());
 
         then(theContentOfPreview(), theHeaderEqualsTo("My Second Blog Post")
-                .and(theContentEqualsTo("This is my cool content"))
+                .and(theContentEqualsTo("Cool Content"))
         );
     }
 
@@ -148,12 +148,12 @@ public class CreateNewBlogPostTest extends WebUiTestBase {
 
             @Override
             public void describeTo(final Description description) {
-                description.appendText("is " + content);
+                description.appendText(content);
             }
 
             @Override
             protected void describeMismatchSafely(final BlogPost item, final Description mismatchDescription) {
-                mismatchDescription.appendText("is " + item.title());
+                mismatchDescription.appendText(item.title());
             }
         };
     }
@@ -167,12 +167,12 @@ public class CreateNewBlogPostTest extends WebUiTestBase {
 
             @Override
             public void describeTo(final Description description) {
-                description.appendText("is " + title);
+                description.appendText(title);
             }
 
             @Override
             protected void describeMismatchSafely(final BlogPost item, final Description mismatchDescription) {
-                mismatchDescription.appendText("is " + item.title());
+                mismatchDescription.appendText(item.title());
             }
         };
     }
