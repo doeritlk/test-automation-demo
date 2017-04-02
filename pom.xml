@@ -81,7 +81,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <webdriver.type>Headless</webdriver.type>
+                <webdriver.type>Chrome</webdriver.type>
                 <webdriver.path>${project.basedir}/drivers/chromedriver</webdriver.path>
             </properties>
         </profile>

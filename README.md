@@ -29,5 +29,7 @@ For example, if you wish to use Chrome:
 
 `-Dwebdriver.type=Chrome` `-Dwebdriver.path=<path-to-driver>`
 
+The headless mode uses a driver called JBrowserDriver. There are two known limitations in Headless mode. The screen shot contains garbled characters, the other one is getting text from elements intermittently return empty value.
+
 ### Dependencies ###
 An extension of the BDD test library called yatspec (https://github.com/bodar/yatspec)  has been used in the project. The source code is at *https://github.com/doeritlk/yatspec-ext.git*.

@@ -39,7 +39,9 @@ public class CreateNewBlogPostTest extends WebUiTestBase {
         final LoginPage loginPage = new LoginPage(webDriver, loginUrl);
         loginPage.logsOut(logsOutUrl);
     }
-
+    /*
+        This test occasionally fails on headless mode due to empty header/content value.
+     */
     @Test
     public void canAddANewBlogPost() throws Exception {
         given(userLogsInAs(aRegisteredUser, password));
