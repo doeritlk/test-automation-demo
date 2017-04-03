@@ -19,21 +19,23 @@ Web Page Object oriented tests - Test should interact with pages as objects, the
 
 
 ### How do I get set up? ###
-You need to have latest oracle java (JDK 1.8+) and Apache Maven installed in your box.
+You need to have latest Oracle Java (JDK 1.8+ client VM) and Apache Maven installed in your box. If you use server JDK/JRE, that will cause issues when running tests in headless mode.
  
  In order to build the project, go to project directory and use: 
 
     mvn clean install
 
-You could provide the type of driver that you need to run the tests against passing JVM arg `-Dwebdriver.type`. The supported values are `Headless`, `Chrome`, `Firefox`. You also need to provide paths to driver if you select Chrome or Firefox. 
+That will buid and run all tests in the project. 
 
-For example, if you wish to use Chrome:
+The default `webdriver.type` is set to `Chrome`. You could change the type of driver that you need to run the tests against passing JVM arg `-Dwebdriver.type`. The supported values are `Headless`, `Chrome`, `Firefox`.
 
-`-Dwebdriver.type=Chrome` `-Dwebdriver.path=<path-to-driver>`
+For example, if you wish to use Headless driver:
 
-The headless mode uses a driver called JBrowserDriver. There are two known limitations in Headless mode. The screen shot contains garbled characters, the other one is getting text from elements intermittently return empty value.
+`-Dwebdriver.type=Headless`
 
-The drivers included in the project are for Mac OS. If you wish to use the demo on other platforms, please download the specific driver and update the profile in pom.xml to refer to the new driver.
+The headless mode uses a driver called JBrowserDriver. The version which has been used in this project is not an official release. This is because current release has some known issues which prevent getting element values correctly.
+
+The drivers are in `test-automation-demo/drivers` and they are for the Mac OS. If you wish to use the demo on other platforms, please download OS specific driver, copy to  `test-automation-demo/drivers` directory and update the profile in `pom.xml` to refer to the new driver.
 
 ### Dependencies ###
 An extension of the BDD test library called yatspec (https://github.com/bodar/yatspec)  has been used in the project. The source code is at *https://github.com/doeritlk/yatspec-ext.git*.

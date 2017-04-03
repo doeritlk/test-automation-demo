@@ -83,7 +83,7 @@
             </activation>
             <properties>
                 <webdriver.type>Chrome</webdriver.type>
-                <webdriver.path>${project.basedir}/drivers/chromedriver</webdriver.path>
+                <webdriver.dir.path>${project.basedir}/drivers/</webdriver.dir.path>
             </properties>
         </profile>
     </profiles>
@@ -103,7 +103,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <configuration>
-                    <argLine>-Dwebdriver.type=${webdriver.type} -Dwebdriver.path=${webdriver.path}</argLine>
+                    <argLine>-Dwebdriver.type=${webdriver.type} -Dwebdriver.path=${webdriver.dir.path}</argLine>
                 </configuration>
             </plugin>
         </plugins>

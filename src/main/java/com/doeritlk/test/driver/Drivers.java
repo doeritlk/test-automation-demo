@@ -29,13 +29,13 @@ public final class Drivers {
 
         switch (driverType) {
             case Chrome:
-                System.setProperty("webdriver.chrome.driver", webDriverPath());
+                System.setProperty("webdriver.chrome.driver", webDriverPath("chromedriver"));
 
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--start-maximized");
                 return new ChromeDriver(options);
             case Firefox:
-                System.setProperty("webdriver.gecko.driver", webDriverPath());
+                System.setProperty("webdriver.gecko.driver", webDriverPath("geckodriver"));
                 System.setProperty("webdriver.firefox.marionette", "false");
 
                 return new FirefoxDriver();
@@ -45,7 +45,7 @@ public final class Drivers {
                         .headless(true)
                         .javascript(true)
                         .ignoreDialogs(true)
-                        .javaOptions("-Duser.language=en", "-Duser.country=US")
+                        .javaOptions("-Duser.language=en", "-Duser.country=GB")
                         .userAgent(UserAgent.CHROME)
                         .buildCapabilities();
                 capabilities.setCapability("nativeEvents", "true");
@@ -55,9 +55,10 @@ public final class Drivers {
         }
     }
 
-    private static String webDriverPath() {
+    private static String webDriverPath(String driverName) {
         return Optional
                 .ofNullable(System.getProperty("webdriver.path"))
+                .flatMap(path -> Optional.of(path + driverName))
                 .orElseThrow(() -> new RuntimeException("path to driver binary is not specified"));
     }
 }
