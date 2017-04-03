@@ -2,7 +2,6 @@ package com.doeritlk.test.driver;
 
 import com.machinepublishers.jbrowserdriver.JBrowserDriver;
 import com.machinepublishers.jbrowserdriver.Settings;
-import com.machinepublishers.jbrowserdriver.UserAgent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -46,7 +45,6 @@ public final class Drivers {
                         .javascript(true)
                         .ignoreDialogs(true)
                         .javaOptions("-Duser.language=en", "-Duser.country=GB")
-                        .userAgent(UserAgent.CHROME)
                         .buildCapabilities();
                 capabilities.setCapability("nativeEvents", "true");
                 capabilities.setCapability("cssSelectorsEnabled", "true");
