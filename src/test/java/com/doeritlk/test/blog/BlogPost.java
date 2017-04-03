@@ -1,17 +1,16 @@
 package com.doeritlk.test.blog;
 
 public class BlogPost {
-    private final String title;
+    private final String header;
     private final String content;
 
-
-    public BlogPost(final String title, final String content) {
-        this.title = title;
+    public BlogPost(final String header, final String content) {
+        this.header = header;
         this.content = content;
     }
 
-    public String title() {
-        return title;
+    public String header() {
+        return header;
     }
 
     public String content() {

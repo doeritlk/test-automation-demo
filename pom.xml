@@ -49,11 +49,16 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
         <dependency>
-            <groupId>com.machinepublishers</groupId>
-            <artifactId>jbrowserdriver</artifactId>
-            <version>0.17.5</version>
+            <groupId>com.github.MachinePublishers</groupId>
+            <artifactId>jBrowserDriver</artifactId>
+            <version>7ef16b0fc2</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.9</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>

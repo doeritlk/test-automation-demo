@@ -36,12 +36,10 @@ public class CreateNewBlogPostTest extends WebUiTestBase {
     @After
     public void logsOut() throws IOException {
         takeScreenShot();
-        final LoginPage loginPage = new LoginPage(webDriver, loginUrl);
+        LoginPage loginPage = new LoginPage(webDriver, loginUrl);
         loginPage.logsOut(logsOutUrl);
     }
-    /*
-        This test occasionally fails on headless mode due to empty header/content value.
-     */
+
     @Test
     public void canAddANewBlogPost() throws Exception {
         given(userLogsInAs(aRegisteredUser, password));
@@ -155,7 +153,7 @@ public class CreateNewBlogPostTest extends WebUiTestBase {
 
             @Override
             protected void describeMismatchSafely(final BlogPost item, final Description mismatchDescription) {
-                mismatchDescription.appendText(item.title());
+                mismatchDescription.appendText(item.content());
             }
         };
     }
@@ -164,7 +162,7 @@ public class CreateNewBlogPostTest extends WebUiTestBase {
         return new TypeSafeMatcher<BlogPost>() {
             @Override
             protected boolean matchesSafely(final BlogPost blogPost) {
-                return title.contains(blogPost.title());
+                return title.equals(blogPost.header());
             }
 
             @Override
@@ -174,7 +172,7 @@ public class CreateNewBlogPostTest extends WebUiTestBase {
 
             @Override
             protected void describeMismatchSafely(final BlogPost item, final Description mismatchDescription) {
-                mismatchDescription.appendText(item.title());
+                mismatchDescription.appendText(item.header());
             }
         };
     }

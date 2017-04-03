@@ -17,7 +17,6 @@ public class BlogEditorPage extends UiComponent implements WithExplicitWait {
 
     private final By headerXpath = xpath("//body//div//main//section//input[@id='entry-title']");
     private final By contentEntryXpath = xpath("//body//section[@id='entry-markdown-content']//textarea");
-    private final By contentViewXpath = xpath("//body//section[contains(@class,'entry-preview-content')]//div/p");
     private final By previewLinkXpath = xpath(
             "//body//section[@class='gh-view']//section[contains(@class, 'entry-preview')]//a[text()='Preview']"
     );
@@ -36,14 +35,13 @@ public class BlogEditorPage extends UiComponent implements WithExplicitWait {
 
 
     public void entersContent(final String content) {
-        Actions actions = new Actions(driver);
-        actions.sendKeys(find().findElement(contentEntryXpath), content);
-        actions.perform();
+        driver.findElement(contentEntryXpath).clear();
+        driver.findElement(contentEntryXpath).sendKeys(content);
     }
 
     public void entersHeader(final String title) {
         Actions actions = new Actions(driver);
-        actions.sendKeys(find().findElement(headerXpath), title);
+        actions.sendKeys(driver.findElement(headerXpath), title);
         actions.perform();
     }
 
@@ -56,11 +54,11 @@ public class BlogEditorPage extends UiComponent implements WithExplicitWait {
     }
 
     public String header() {
-        return find().findElement(headerXpath).getText();
+        return driver.findElement(headerXpath).getAttribute("value");
     }
 
     public String content() {
-        return find().findElement(contentViewXpath).getText();
+        return driver.findElement(contentEntryXpath).getAttribute("value");
     }
 
     public void refresh() {

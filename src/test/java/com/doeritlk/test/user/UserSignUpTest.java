@@ -23,8 +23,8 @@ public class UserSignUpTest extends WebUiTestBase {
      */
     @Test
     @Table({
-            @Row({"John Flower", "johnflower130@gmail.com", "jflower$1"}),
-            @Row({"Alex Marsh", "alexmarsh131@gmail.com", "alexmarsh@1"})
+            @Row({"John Flower", "johnflower007@gmail.com", "jflower$1"}),
+            @Row({"Alex Marsh", "alexmarsh008@gmail.com", "alexmarsh@1"})
     })
     public void aUserCanSuccessfullySignUp(String fullname, String email, String password) throws Exception {
         given(userNavigatesToSignUpPage());

@@ -45,6 +45,7 @@ public final class Drivers {
                         .headless(true)
                         .javascript(true)
                         .ignoreDialogs(true)
+                        .javaOptions("-Duser.language=en", "-Duser.country=US")
                         .userAgent(UserAgent.CHROME)
                         .buildCapabilities();
                 capabilities.setCapability("nativeEvents", "true");

@@ -7,9 +7,11 @@ import java.time.Duration;
 
 import static org.openqa.selenium.By.xpath;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class BlogPreviewPage extends UiComponent implements WithExplicitWait {
 
+    private final Duration FIVE_SECONDS = Duration.ofSeconds(5);
     private final By headerXpath = xpath("//body//main[@class='content']/article/header/h1");
     private final By contentXpath = xpath("//body//main[@class='content']/article/section/p");
 
@@ -17,14 +19,14 @@ public class BlogPreviewPage extends UiComponent implements WithExplicitWait {
         super(webDriver, xpath("//body//main[@class='content']"));
         driver.get(previewLink);
 
-        waitUntil(driver, visibilityOf(find().findElement(headerXpath)), Duration.ofSeconds(10));
+        waitUntil(driver, visibilityOf(find().findElement(headerXpath)), FIVE_SECONDS);
     }
 
     public String header() {
-        return find().findElement(headerXpath).getText();
+        return waitUntil(driver, visibilityOfElementLocated(headerXpath), FIVE_SECONDS).getText();
     }
 
     public String content() {
-        return find().findElement(contentXpath).getText();
+        return waitUntil(driver, visibilityOfElementLocated(contentXpath), FIVE_SECONDS).getText();
     }
 }
